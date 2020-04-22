@@ -1,5 +1,5 @@
-FROM docker:19.03.4 as docker
-FROM codercom/code-server
+FROM docker:19.03.8 as docker
+FROM codercom/code-server:3.1.1
 
 COPY --from=docker /usr/local/bin/docker /usr/local/bin/docker
 
