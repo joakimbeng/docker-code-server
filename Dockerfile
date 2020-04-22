@@ -5,7 +5,8 @@ COPY --from=docker /usr/local/bin/docker /usr/local/bin/docker
 
 ADD ./init-prezto.sh /home/coder/
 
-RUN sudo apt-get install -y zsh \
+RUN sudo apt-get update \
+    && sudo apt-get install -y zsh \
     && git clone --recursive https://github.com/joakimbeng/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" \
     && /home/coder/init-prezto.sh \
     && sudo chsh -s /usr/bin/zsh coder
